@@ -22,21 +22,28 @@ function playRound(choice1, choice2) {
          
     }
     else if (choice1 == 'paper' && choice2 == 'rock') {
+        alert("You win! " + choice1 + " beats " + choice2)
         return 'win!'
+        
     }
     else if (choice1 == 'scissors' && choice2 == 'paper') {
+        alert("You win! " + choice1 + " beats " + choice2)
         return 'win!'
     }
     else if (choice1 == 'rock' && choice2 == 'paper') {
+        alert("You win! " + choice1 + " beats " + choice2)
         return  'lose!'
     }
     else if (choice1 == 'paper' && choice2 == 'scissors') {
+        alert("You lose! " + choice1 + " beats " + choice2)
         return 'lose!'
     }
     else if (choice1 == 'scissors' && choice2 == 'rock') {
+        alert("You lose! " + choice1 + " beats " + choice2)
         return 'lose!'
     }
     else if (choice1 == choice2)
+    alert("You lose! " + choice1 + " beats " + choice2)
         return 'tie!'
      
 }
