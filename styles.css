@@ -41,11 +41,21 @@ body {
  
 }
 
-button {
-    width: 200px;
+title {
+    color: white;
+    color: #bd3434;
+    background: ;
+
 }
 
-.player {
+button {
+    width: 200px;
+    height: 100px;
+    font-size: 38px;
+    background-color: antiquewhite;
+}
+
+.player, .computer {
     display: flex;
     flex-direction: column;
     flex-basis: 400px;
