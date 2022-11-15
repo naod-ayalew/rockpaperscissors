@@ -2,3 +2,83 @@
 
 For the rock paper scissors website */
 
+html, body, .container, .header  {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;   
+}
+
+.header {
+    display: flex;
+    background-color: lightblue;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    height: 125px;
+      
+}
+
+.hero {
+     
+    font-size: 48px;
+    color: purple;
+}
+
+.subhero {
+    font-size: 28px;
+    color: orange;
+}
+
+.container {
+    display: flex;
+    background-color: goldenrod;
+    flex-direction: row;
+    justify-content: space-around;
+ 
+}
+
+button {
+    width: 200px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 400px;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 400px;
+    align-items: center;
+    justify-content: center;
+    
+  
+}
+
+.roundresults {
+    border-color:  purple;
+    border-width: 8px;
+ 
+}
+
+.tally {
+    border-color:  purple;
+    border-width: 8px;
+
+}
+
+.message {
+    border-color:  purple;
+    border-width: 8px;
+
+}
