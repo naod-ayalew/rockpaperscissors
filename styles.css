@@ -78,19 +78,36 @@ button {
 }
 
 .roundresults {
-    border-color:  purple;
+    display: flex;
+    border: solid  purple;
     border-width: 8px;
+    height: 150px;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
  
 }
-
+ 
 .tally {
-    border-color:  purple;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: solid  purple;
+    border-width: 8px;
     border-width: 8px;
 
 }
+#pTally, #cTally {
+    width: 60px;
+    text-align: center;
+    border: solid  purple;
+    border-width: 8px;
 
+}
 .message {
-    border-color:  purple;
+    border: solid  purple;
     border-width: 8px;
 
 }
