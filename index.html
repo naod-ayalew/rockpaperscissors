@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <link href='https://fonts.googleapis.com/css?family=Allerta+Stencil|Viga|Yellowtail ' rel='stylesheet'>
 </head>
 <body>
     
@@ -24,12 +24,15 @@
             <button id="Scissors"> Scissors</button>
         </div>
         <div class="results">
-            <div id="roundresults"></div>
+            <div id="roundresults">
+                <div id="text"></div>
+                <button class="reset" onclick="window.location.reload()">Try Again!</button>
+            </div>
             <div class="tally">
                 <div id="pTally">0</div>
                 <div id="cTally"> 0 </div>
             </div>
-            <div id="message"></div>
+            
         </div>
         <div class="computer">
             <div class="title"> The computer chooses</div>

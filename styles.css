@@ -14,7 +14,7 @@ body {
 
 .header {
     display: flex;
-    background-color: lightblue;
+    background-color: rgb(43, 80, 92);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -25,28 +25,34 @@ body {
 
 .hero {
      
-    font-size: 48px;
-    color: purple;
+    font-size: 56px;
+    color: white;
+    font-family: 'Allerta Stencil'
 }
 
 .subhero {
     font-size: 28px;
     color: orange;
+    font-family: 'Viga'
 }
 
 .container {
     display: flex;
-    background-color: goldenrod;
+    background-color:rgb(43, 80, 92);
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center'
  
 }
 
-title {
-    color: white;
-    color: #bd3434;
-    background: ;
+.title {
+    display: flex;
+    font-family: "Allerta Stencil";
+    font-size: 34px;
+    justify-content: center;
+    color:white;
+    
+
 
 }
 
@@ -54,17 +60,54 @@ button {
     width: 200px;
     height: 100px;
     font-size: 38px;
-    background-color: antiquewhite;
+    background-color: goldenrod;
+    border-color: (43, 80, 92); 
+    border: solid 4px;
+    font-family: 'Viga';
 }
 
+#text {
+    text-align: center;
+    padding-top: 30px;
+     
+}
+.reset {
+     
+    align-self: center;
+    
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    display: none;
+    font-family: 'Yellowtail';
+    border-bottom: none;
+    
+    
+}
 .player, .computer {
     display: flex;
     flex-direction: column;
     flex-basis: 400px;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
 
+}
+.compChoice {
+    display: flex;
+    font-size: 38px;
+    background-color: goldenrod;
+    font-family: 'Viga';
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+     
+}
+
+.highlighted {
+    background-color: red;
+    color: white; 
+    border: solid 4px goldenrod;
 }
 
 .results {
@@ -74,19 +117,23 @@ button {
     align-items: center;
     justify-content: center;
     
+    
   
 }
 
 #roundresults {
     display: flex;
-    border: solid  purple;
-    border-width: 8px;
-    height: 150px;
-    align-items: center;
-    width: 200px;
-    justify-content: center;
-    white-space: pre;
-    text-align: center;
+    flex-direction: column;
+    border: solid 4px black;
+    background-color: rgb(224, 194, 198);
+    width: 350px;
+    height: 200px;
+    justify-content: space-between;
+    font-size: 30px;
+    font-family: Viga;
+     
+    
+     
  
 }
  
@@ -96,32 +143,40 @@ button {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    border: solid  purple;
-    border-width: 8px;
-    border-width: 8px;
+    margin-top: 40px;
+   
 
 }
 #pTally, #cTally {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 30px;
- 
-    border: solid  purple;
-    border-width: 8px;
+    width: 75px;
+    height: 45px;
+    background-color: goldenrod;
+    font-size: 28px;
+    font-family: 'Allerta Stencil';
+    border: solid 4px;
 
 }
-.message {
-    border: solid  purple;
-    border-width: 8px;
 
+*:disabled {
+    background-color: goldenrod;
+    color: black;
+    border: solid 4px;
 }
 
 .compChoice {
-    background-color: whitesmoke;
+    
     width: 200px;
     height: 100px;
-    border: black;
-    border-width: 8px;
+    box-sizing: border-box;
+    border: solid 4px;
+    display: flex;
+    font-size: 38px;
+    background-color: goldenrod;
+    font-family: 'Viga';
+    justify-content: center;
+    align-items: center;
+     
 }
