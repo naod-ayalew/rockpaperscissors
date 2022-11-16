@@ -75,10 +75,10 @@ button {
 .reset {
      
     align-self: center;
-    
-    width: 100px;
+    text-align: center;
+    width: 170px;
     height: 60px;
-    font-size: 20px;
+    font-size: 33px;
     display: none;
     font-family: 'Yellowtail';
     border-bottom: none;

@@ -35,8 +35,6 @@ function playTrans(slct) {
 }
  
 const buttons = document.querySelectorAll('button');
-let pCounter = 0;
-let cCounter = 0;
 
 pScore = document.getElementById('pTally');
 cScore = document.getElementById('cTally');
@@ -49,23 +47,27 @@ rst = resetButton[0]
  
  
  
- 
+let pCounter = 0;
+let cCounter = 0;
+
  
 buttons.forEach((button) => {
 
   button.addEventListener('click', () => {
     const cSelect = getComputerChoice(options);
     const pSelect = button.id;
+     
+   
 
     compTrans(cSelect)
     playTrans(pSelect)
 
     setTimeout(() => {
       revertPlay(pSelect);
-        }, 1200)
+        }, 700)
     setTimeout(() => {
       revertComp(cSelect);
-      }, 1200)
+      }, 700)
          
      
 /* This is broken down into various if statements to help make sense of the logic for me
@@ -113,74 +115,11 @@ buttons.forEach((button) => {
         text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
             
         } 
-        pScore.textContent = pCounter
-        cScore.textContent = cCounter
-         
-
     }   
-    else if (pCounter == 4 && cCounter == 4){
-        if (pSelect == 'Rock' && cSelect == 'Scissors') {  
-            pCounter = ++pCounter;
-            text.textContent = "Great job! You won!";
-            rst.style.display = 'block';   
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if (pSelect == 'Paper' && cSelect == 'Rock') {
-            pCounter = ++pCounter;
-            text.textContent = "Great job! You won!";
-            rst.style.display = 'block';      
-            buttonsDisable.forEach(disableButtons)
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if (pSelect == 'Scissors' && cSelect == 'Paper') {
-            pCounter = ++pCounter;
-            text.textContent = "Great job! You won!";
-            rst.style.display = 'block';      
-            buttonsDisable.forEach(disableButtons)
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if (pSelect == 'Rock' && cSelect == 'Paper') {
-            cCounter = ++cCounter
-            text.textContent = "Shoot! You lost";
-            rst.style.display = 'block'; 
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if (pSelect == 'Paper' && cSelect == 'Scissors') {
-            cCounter = ++cCounter
-            text.textContent = "Shoot! You lost";
-            rst.style.display = 'block'; 
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if (pSelect == 'Scissors' && cSelect == 'Rock') {
-            cCounter = ++cCounter
-            text.textContent = "Shoot! You lost";
-            rst.style.display = 'block';   
-            document.getElementById("Rock").disabled = true;
-            document.getElementById("Paper").disabled = true;
-            document.getElementById("Scissors").disabled = true;
-        }
-        else if(pSelect == cSelect) {
-        text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
-            
-        } 
-        pScore.textContent = pCounter
-        cScore.textContent = cCounter
-        }
-    
-    else if  (pCounter == 4 && cCounter !=4) {
-
-        if (pSelect == 'Rock' && cSelect == 'Scissors') {  
+        else if (pCounter == 4 && cCounter == 4){
+            if (pSelect == 'Rock' && cSelect == 'Scissors') {  
                 pCounter = ++pCounter;
+                pScore.textContent = pCounter
                 text.textContent = "Great job! You won!";
                 rst.style.display = 'block';   
                 document.getElementById("Rock").disabled = true;
@@ -189,18 +128,78 @@ buttons.forEach((button) => {
             }
             else if (pSelect == 'Paper' && cSelect == 'Rock') {
                 pCounter = ++pCounter;
+                pScore.textContent = pCounter
                 text.textContent = "Great job! You won!";
                 rst.style.display = 'block';      
-                 
+                buttonsDisable.forEach(disableButtons)
                 document.getElementById("Rock").disabled = true;
                 document.getElementById("Paper").disabled = true;
                 document.getElementById("Scissors").disabled = true;
             }
             else if (pSelect == 'Scissors' && cSelect == 'Paper') {
                 pCounter = ++pCounter;
+                pScore.textContent = pCounter
                 text.textContent = "Great job! You won!";
                 rst.style.display = 'block';      
-                 
+                buttonsDisable.forEach(disableButtons)
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Rock' && cSelect == 'Paper') {
+                cCounter = ++cCounter
+                cScore.textContent = cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block'; 
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Paper' && cSelect == 'Scissors') {
+                cCounter = ++cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block'; 
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Scissors' && cSelect == 'Rock') {
+                cCounter = ++cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block';   
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if(pSelect == cSelect) {
+            text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
+                
+            } 
+     
+        }
+    
+        else if  (pCounter == 4 && cCounter < 4) {
+
+            if (pSelect == 'Paper' && cSelect == 'Rock') {  
+                pCounter = 5;
+                text.textContent = "Great job! You won!";
+                rst.style.display = 'block';   
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Rock' && cSelect == 'Scissors') {
+                pCounter = 5;
+                text.textContent = "Great job! You won!";
+                rst.style.display = 'block';   
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Scissors' && cSelect == 'Paper') {
+                pCounter = 5;
+                text.textContent = "Great job! You won!";
+                rst.style.display = 'block';   
                 document.getElementById("Rock").disabled = true;
                 document.getElementById("Paper").disabled = true;
                 document.getElementById("Scissors").disabled = true;
@@ -221,59 +220,59 @@ buttons.forEach((button) => {
             text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
                 
             } 
-            pScore.textContent = pCounter
-            cScore.textContent = cCounter
+            
           
         }
-        else if (cCounter = 4 && pCounter != 4) {
+        else if (pCounter < 4 && cCounter == 4) {
             if (pSelect == 'Rock' && cSelect == 'Scissors') {  
                     text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
                     pCounter = ++pCounter; 
 
 
-                }
-                else if (pSelect == 'Paper' && cSelect == 'Rock') {
-                text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
-                    pCounter = ++pCounter;      
-                }
-                else if (pSelect == 'Scissors' && cSelect == 'Paper') {
-                text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
-                    pCounter = ++pCounter;      
-                }
-                else if (pSelect == 'Rock' && cSelect == 'Paper') {
-                    cCounter = ++cCounter
-                    text.textContent = "Shoot! You lost";
-                    rst.style.display = 'block'; 
-                    document.getElementById("Rock").disabled = true;
-                    document.getElementById("Paper").disabled = true;
-                    document.getElementById("Scissors").disabled = true;
-                }
-                else if (pSelect == 'Paper' && cSelect == 'Scissors') {
-                    cCounter = ++cCounter
-                    text.textContent = "Shoot! You lost";
-                    rst.style.display = 'block'; 
-                    document.getElementById("Rock").disabled = true;
-                    document.getElementById("Paper").disabled = true;
-                    document.getElementById("Scissors").disabled = true;
-                }
-                else if (pSelect == 'Scissors' && cSelect == 'Rock') {
-                    cCounter = ++cCounter
-                    text.textContent = "Shoot! You lost";
-                    rst.style.display = 'block';   
-                    document.getElementById("Rock").disabled = true;
-                    document.getElementById("Paper").disabled = true;
-                    document.getElementById("Scissors").disabled = true;
-                }
-                else if(pSelect == cSelect) {
-                text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
-                    
-                } 
-                pScore.textContent = pCounter
-                cScore.textContent = cCounter
-                }
-
+            }
+            else if (pSelect == 'Paper' && cSelect == 'Rock') {
+            text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
+                pCounter = ++pCounter;      
+            }
+            else if (pSelect == 'Scissors' && cSelect == 'Paper') {
+            text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
+                pCounter = ++pCounter;      
+            }
+            else if (pSelect == 'Rock' && cSelect == 'Paper') {
+                cCounter = ++cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block'; 
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Paper' && cSelect == 'Scissors') {
+                cCounter = ++cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block'; 
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if (pSelect == 'Scissors' && cSelect == 'Rock') {
+                cCounter = ++cCounter
+                text.textContent = "Shoot! You lost";
+                rst.style.display = 'block';   
+                document.getElementById("Rock").disabled = true;
+                document.getElementById("Paper").disabled = true;
+                document.getElementById("Scissors").disabled = true;
+            }
+            else if(pSelect == cSelect) {
+            text.textContent = "You tied this round! \r\n You both picked " + cSelect + ".";
+                
+            } 
+                
+        }
+    pScore.textContent = pCounter
+    cScore.textContent = cCounter
                 
     });
+    
 });
 
 
