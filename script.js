@@ -1,12 +1,39 @@
 //script.js//
  
+
 const options = ["Rock", "Paper", "Scissors"]
-    
+
+
+
 function getComputerChoice(rps) {   //The randomized choice of the computer selection is below
     computerSelection = rps[Math.floor(Math.random()*rps.length)];
-    
+     
     return computerSelection 
 }
+
+function revertPlay(slct) {
+    idElement = document.getElementById(slct)
+    idElement.style.color = 'black';
+}
+function revertComp(slct) {
+    divId = "c"+slct 
+    idElement = document.getElementById(divId)
+    idElement.style.color = 'black';
+
+}
+function compTrans(slct) {
+    divId = "c"+slct 
+    idElement = document.getElementById(divId)
+    idElement.style.color = 'white';
+
+}
+
+function playTrans(slct) {
+    idElement = document.getElementById(slct)
+    idElement.style.color = 'white';
+
+}
+ 
 const buttons = document.querySelectorAll('button');
 let pCounter = 0;
 let cCounter = 0;
@@ -15,7 +42,8 @@ pScore = document.getElementById('pTally');
 cScore = document.getElementById('cTally');
 
 let text = document.getElementById('text');
-let msg = document.getElementById('message');
+ 
+ 
 const resetButton = document.getElementsByClassName('reset');
 rst = resetButton[0]
  
@@ -28,8 +56,18 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     const cSelect = getComputerChoice(options);
     const pSelect = button.id;
+
+    compTrans(cSelect)
+    playTrans(pSelect)
+
+    setTimeout(() => {
+      revertPlay(pSelect);
+        }, 1200)
+    setTimeout(() => {
+      revertComp(cSelect);
+      }, 1200)
+         
      
-    
 /* This is broken down into various if statements to help make sense of the logic for me
     While I'm sure this code is pretty inefficient, I will try to break it down for my own
     sense.
@@ -139,7 +177,7 @@ buttons.forEach((button) => {
         cScore.textContent = cCounter
         }
     
-    else if  (pCounter == 4) {
+    else if  (pCounter == 4 && cCounter !=4) {
 
         if (pSelect == 'Rock' && cSelect == 'Scissors') {  
                 pCounter = ++pCounter;
@@ -187,7 +225,7 @@ buttons.forEach((button) => {
             cScore.textContent = cCounter
           
         }
-        else if (cCounter = 4) {
+        else if (cCounter = 4 && pCounter != 4) {
             if (pSelect == 'Rock' && cSelect == 'Scissors') {  
                     text.textContent = "You win this round!\r\n" + pSelect + " beats " + cSelect + ".";
                     pCounter = ++pCounter; 

@@ -64,6 +64,7 @@ button {
     border-color: (43, 80, 92); 
     border: solid 4px;
     font-family: 'Viga';
+    transition: .3s;
 }
 
 #text {
@@ -93,14 +94,18 @@ button {
     gap: 80px;
 
 }
-.compChoice {
+#cRock, #cPaper, #cScissors {
+    width: 200px;
+    height: 100px;
+    box-sizing: border-box;
+    border: solid 4px;
     display: flex;
     font-size: 38px;
     background-color: goldenrod;
     font-family: 'Viga';
     justify-content: center;
     align-items: center;
-    transition: all 1s;
+    transition: .3s;
      
 }
 
